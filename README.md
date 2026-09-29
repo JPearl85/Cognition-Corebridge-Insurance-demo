@@ -7,7 +7,7 @@ A full-stack web application for generating insurance quotes, built with React a
 | Layer          | Technology                              |
 | -------------- | --------------------------------------- |
 | Frontend       | React 19, Vite 7, ESLint, Prettier     |
-| Backend        | Spring Boot 3.4.1, Java 17, Maven      |
+| Backend        | Spring Boot 3.4.1, Java 21, Maven      |
 | Database       | PostgreSQL (H2 for tests and local dev)|
 | Infrastructure | Terraform, Azure App Service            |
 | CI/CD          | GitHub Actions                          |
@@ -15,7 +15,7 @@ A full-stack web application for generating insurance quotes, built with React a
 ## Prerequisites
 
 - **Node.js** 20+ and npm
-- **Java** 17+ (JDK)
+- **Java** 21+ (JDK)
 - **Maven** 3.9+
 - **PostgreSQL** 15+ (optional — only required if not using the `local` profile)
 - **Terraform** 1.5+ (for infrastructure changes only)
@@ -24,7 +24,7 @@ A full-stack web application for generating insurance quotes, built with React a
 
 ```
 ├── frontend/          # React 19 + Vite 7 application
-├── backend/           # Spring Boot 3.4.1 REST API (Java 17, Maven)
+├── backend/           # Spring Boot 3.4.1 REST API (Java 21, Maven)
 ├── infra/             # Terraform infrastructure (Azure)
 └── .github/workflows/ # CI/CD pipelines
 ```
@@ -577,7 +577,7 @@ GitHub Actions workflows run automatically on pull requests and pushes:
   
 - **Backend CI** (`backend-ci.yml`)
   - Triggered by changes in `backend/` directory
-  - Java 17 environment
+  - Java 21 environment
   - Runs: `mvn clean verify` (compile, test, Checkstyle, SpotBugs)
 
 ### Continuous Deployment
@@ -601,7 +601,7 @@ GitHub Actions workflows run automatically on pull requests and pushes:
 The application is deployed to Microsoft Azure using GitHub Actions for continuous deployment:
 
 - **Frontend** — Azure Static Web App (deployed on push to `main`)
-- **Backend** — Azure App Service with Java 17 runtime (deployed on push to `main`)
+- **Backend** — Azure App Service with Java 21 runtime (deployed on push to `main`)
 - **Database** — Azure Database for PostgreSQL Flexible Server
 - **Infrastructure** — Managed with Terraform
 
