@@ -56,7 +56,7 @@ function QuoteReview({ formData, prevStep, goToStep }) {
       customerStreet: formData.street,
       customerCity: formData.city,
       customerState: formData.state,
-      customerZipCode: formData.zipCode,
+      customerZip: formData.zipCode,
       insuranceType: formData.insuranceType,
       vehicleYear: formData.vehicleYear ? parseInt(formData.vehicleYear) : null,
       vehicleMake: formData.vehicleMake || null,
