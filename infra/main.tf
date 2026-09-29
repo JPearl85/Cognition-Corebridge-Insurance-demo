@@ -27,7 +27,7 @@ resource "azurerm_service_plan" "backend" {
 }
 
 # --- App Service (Spring Boot Backend) ---
-# Java 17 Linux web app for the insurance quote API
+# Java 21 Linux web app for the insurance quote API
 resource "azurerm_linux_web_app" "backend" {
   name                = "tri-backend-${var.environment}"
   location            = azurerm_resource_group.main.location
@@ -37,8 +37,8 @@ resource "azurerm_linux_web_app" "backend" {
   site_config {
     application_stack {
       java_server         = "JAVA"
-      java_server_version = "17"
-      java_version        = "17"
+      java_server_version = "21"
+      java_version        = "21"
     }
 
     always_on = var.environment == "prod" ? true : false
