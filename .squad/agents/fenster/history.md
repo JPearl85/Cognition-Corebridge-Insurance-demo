@@ -9,7 +9,7 @@
 - **User:** Jorge Balderas
 
 ## Learnings
-- Backend lives at `backend/` with Spring Boot 3.4.1, Java 17, Maven build
+- Backend lives at `backend/` with Spring Boot 3.4.1, Java 21 (migrated from 17), Maven build
 - Package root: `com.threeriverinsurance` with sub-packages: controller, service, model, repository, config
 - Health endpoint: `GET /api/health` → `{"status":"UP"}`
 - Test profile uses H2 in-memory DB; production targets PostgreSQL

@@ -368,3 +368,21 @@ Implemented a multi-step quote wizard with the following architecture:
 - Consider adding form field persistence (localStorage) for partial completion
 
 ---
+
+## Backend Java 21 Migration
+
+**Author:** Fenster (🔧 Backend Dev)  
+**Date:** 2026-09-30  
+**Scope:** Backend, CI/CD, Infrastructure
+
+### Decision
+- Backend baseline moves from **Java 17** to **Java 21** (LTS). Supersedes the Java 17 choices in "Backend Scaffold Choices" and "CI Workflow Conventions".
+- `backend/pom.xml` sets `<java.version>21</java.version>`; Spring Boot 3.4.1 parent unchanged (already supports 21).
+- `ci-backend.yml` and `deploy-backend.yml` use **Java 21 Temurin** via `actions/setup-java@v4` with Maven caching.
+- `infra/main.tf` App Service (`azurerm_linux_web_app.backend`) `application_stack` uses `java_server = "JAVA"`, `java_server_version = "21"`, `java_version = "21"` so the deployed runtime matches the build.
+
+### Rationale
+- Java 21 is the current LTS with longer support than 17; no application source changes required.
+- Keeping build, CI, and App Service runtime on the same major version avoids bytecode/runtime mismatches.
+
+---
